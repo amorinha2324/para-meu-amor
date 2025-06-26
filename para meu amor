@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedido de Casamento</title>
+  <style>
+    body {
+      background: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #a83279;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    p.poema {
+      font-size: 1.2em;
+      max-width: 600px;
+      line-height: 1.6em;
+      margin-bottom: 3em;
+    }
+    .botoes {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 0.8em 2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 5px 10px rgba(168, 50, 121, 0.3);
+      user-select: none;
+      outline: none;
+      position: relative;
+    }
+    button#sim {
+      background-color: #d86ca5;
+      color: white;
+    }
+    button#sim:hover {
+      background-color: #b05485;
+    }
+    button#nao {
+      background-color: #f8bbd0;
+      color: #a83279;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quer casar comigo?</h1>
+  <p class="poema">
+    No brilho do teu olhar encontrei<br />
+    Um mundo inteiro pra amar<br />
+    Cada verso que eu escrevo é pra dizer<br />
+    Que a vida ao teu lado quero viver
+  </p>
+  <div class="botoes">
+    <button id="sim" onclick="alert('Eu sabia que você diria sim! ❤️')">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+
+  <script>
+    const botaoNao = document.getElementById('nao');
+
+    botaoNao.addEventListener('mouseenter', () => {
+      const larguraJanela = window.innerWidth;
+      const alturaJanela = window.innerHeight;
+
+      const larguraBotao = botaoNao.offsetWidth;
+      const alturaBotao = botaoNao.offsetHeight;
+
+      // Posição aleatória garantindo que o botão fique visível na tela
+      let novaEsquerda = Math.floor(Math.random() * (larguraJanela - larguraBotao));
+      let novaTopo = Math.floor(Math.random() * (alturaJanela - alturaBotao));
+
+      botaoNao.style.position = 'fixed';
+      botaoNao.style.left = novaEsquerda + 'px';
+      botaoNao.style.top = novaTopo + 'px';
+    });
+  </script>
+</body>
+</html>
